@@ -172,3 +172,32 @@ interface VIPUser extends User,SuperUser{
 }
 
 ```
+
+
+```
+// 抽象类做为其它派生类的基类使用,它们一般不会直接被实例化,不同于接口,抽象类可以包含成员的实现细节。
+// abstract 关键字是用于定义抽象类和在抽象类内部定义抽象方法。
+
+abstract class Animals {
+    abstract makeSound():void
+    move():void{
+        console.log('the ......success');
+        
+    }
+}
+// 创建子类继承基类,然后可以实例化子类
+class Cat extends Animals {
+    makeSound() {
+        console.log('mm');
+        
+    }
+}
+const cat = new Cat()
+cat.makeSound() //mm
+cat.move() // the ......success
+
+// 三类访问限定符，分别是: public、private、protected。
+
+// class 可以作为接口
+
+```
