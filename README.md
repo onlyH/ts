@@ -201,3 +201,36 @@ cat.move() // the ......success
 // class 可以作为接口
 
 ```
+```
+// 重载（Overload）,著名的全局状态管理库 Redux 的compose就是运用大量函数重载的典型案例
+interface Direction3 {
+    top: number,
+    bottom?: number,
+    left?: number,
+    right?: number
+  }
+
+function assigned(all:number):Direction3
+function assigned(top:number,left:number):Direction3
+function assigned(top:number,left:number,right:number,bottom:number):Direction3
+function assigned(a:number,b?:number,c?:number,d?:any) {
+    if(b == undefined &&c==undefined && d==undefined) {
+        b = c= d= a
+    } else if(c== undefined && d==undefined) {
+        c= a
+        d=b
+    }
+    return{
+        top:a,
+        right:b,
+        botton:c,
+        left:d
+    }
+}
+assigned(1)
+assigned(1,2)
+assigned(1,2,3) // error
+assigned(1,2,3,4)
+
+```
+
