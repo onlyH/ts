@@ -309,3 +309,42 @@ const w3 = {
 }
 getValue2(a,'name')
 ```
+
+
+```
+// 1,使用多重类型进行泛型约束
+interface FirstInterface {
+    doSomething(): number
+  }
+  
+  interface SecondInterface {
+    doSomethingElse(): string
+  }
+  class Demo<T extends FirstInterface, SecondInterface> {
+    private genericProperty: T
+  
+    useT() {
+      this.genericProperty.doSomething()
+      this.genericProperty.doSomethingElse() // 类型“T”上不存在属性“doSomethingElse”
+    }
+  }
+//   可以将接口 FirstInterface 与 SecondInterface 作为超接口来解决问题：
+interface ChildrenInterface extends FirstInterface,SecondInterface {
+
+}
+class Demo2<T extends ChildrenInterface>{
+private genericProperty:T
+useT() {
+    this.genericProperty.doSomething()
+    this.genericProperty.doSomethingElse()
+}
+}
+// 2,利用交叉类型来进行多类型约束
+class Demo3<T extends FirstInterface & SecondInterface> {
+    private genericProperty:T
+useT() {
+    this.genericProperty.doSomething()
+    this.genericProperty.doSomethingElse()
+}
+}
+```
