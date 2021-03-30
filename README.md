@@ -149,4 +149,26 @@ let mySquares = CalculateAreas({ widdth: 5} as Config)
 let options:any = {widdth:5}
 let myy = CalculateAreas(options)
 ```
+```
 
+// 可索引类型表示，具有一个索引签名，描述了对象索引的类型，还有相应的索引返回值类型
+interface Phone{
+    [name:string]:string
+}
+interface User1  {
+    name:string
+    age?:number
+    readonly isMale:boolean
+    say:()=>string
+    phone:Phone
+
+}
+interface SuperUser{
+    buy:()=>string
+}
+// 继承接口
+interface VIPUser extends User,SuperUser{
+    broadcast:()=>void
+}
+
+```
