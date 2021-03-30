@@ -348,3 +348,11 @@ useT() {
 }
 }
 ```
+
+```
+// 假设需要声明一个泛型拥有构造函数
+function factory<T>(type:{new():T}):T {
+    return new type()
+}
+// 参数 type 的类型 {new(): T} 就表示此泛型 T 是可被构造的，在被实例化后的类型是泛型 T。
+```
